@@ -1,0 +1,16 @@
+{
+	"Stations": [
+		
+		{
+			"name": "NPR (WYPR)",
+			"url": "http://live.str3am.com:2410/wypr" 
+			
+		},
+		{
+			"name": "NPR (WAMU)",
+			"url": "http://wamu-1.streamguys.com:80"
+			
+		}	
+	]
+
+}
