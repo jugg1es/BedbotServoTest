@@ -152,6 +152,6 @@ class ScreenServo(QObject):
     def dispose(self):
          self.emit(QtCore.SIGNAL('logEvent'),"disposing of motor manager")
          if(pigpioLibraryFound):
-             self.pi.set_servo_pulsewidth(self.servo, 0)
+             self.pi.set_servo_pulsewidth(self.servo, self.middle)
              self.pi.stop()
 
