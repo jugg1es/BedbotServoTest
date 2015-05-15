@@ -7,8 +7,8 @@ from threading import Timer,Thread,Event
 
 class ScreenState(Enum):
     CLOSED = 0
-    MOVING =1
-    OPEN =2
+    MOVING = 1
+    OPEN = 2
 
 pigpioLibraryFound = False
 
@@ -32,8 +32,8 @@ class ScreenServo(QObject):
 	
 	angleTestMode = True
 
-    #ranges from 500-2500 but those may not be safe for the servo    
-    #bottomRange = 600  
+    #ranges from 500-2500 but those may not be safe for the servo
+    #bottomRange = 600
     #topRange = 2400
 
     bottomRange = 800  
@@ -110,11 +110,11 @@ class ScreenServo(QObject):
          print("position toggled   state: " + str(self.currentState))   
          if(pigpioLibraryFound and self.currentState != None):
              if(self.currentState == ScreenState.CLOSED):
-                 #self.emit(QtCore.SIGNAL('turnScreenOn')) 
+                 #self.emit(QtCore.SIGNAL('turnScreenOn'))
                  self.emit(QtCore.SIGNAL('logEvent'),"screen opening")
                  self.openLid()
              elif(self.currentState == ScreenState.OPEN):
-                 #self.emit(QtCore.SIGNAL('turnScreenOff')) 
+                 #self.emit(QtCore.SIGNAL('turnScreenOff'))
                  self.emit(QtCore.SIGNAL('logEvent'),"screen closing")
                  self.closeLid()
      
@@ -125,7 +125,7 @@ class ScreenServo(QObject):
          if(pigpioLibraryFound):
              if(self.angleTestMode):
                  self.pi.set_servo_pulsewidth(self.servo, self.bottomRange)
-             elif( self.currentState != ScreenState.MOVING):             
+             elif(self.currentState != ScreenState.MOVING):             
                  self.currentState = ScreenState.MOVING
                  self.currentAngle = self.move(self.openAngle)
                  self.currentState = ScreenState.OPEN
@@ -137,7 +137,7 @@ class ScreenServo(QObject):
         if(pigpioLibraryFound):
              if(self.angleTestMode):
                  self.pi.set_servo_pulsewidth(self.servo, self.topRange)
-             elif( self.currentState != ScreenState.MOVING):             
+             elif(self.currentState != ScreenState.MOVING):             
                  self.currentState = ScreenState.MOVING            
                  self.currentAngle = self.move(self.closeAngle)
                  self.currentState = ScreenState.CLOSED
