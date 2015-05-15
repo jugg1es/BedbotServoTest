@@ -17,11 +17,14 @@ try:
     pigpioLibraryFound = True
 except ImportError:
     print('pigpio library not found or pigpiod not running')
+
+
+
     
 
 class ScreenServo(QObject):
 
-    Enabled = True
+    Enabled = False
     servo = None
     togglePin = None
 
