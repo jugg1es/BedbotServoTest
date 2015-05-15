@@ -24,7 +24,8 @@ except ImportError:
 
 class ScreenServo(QObject):
 
-    Enabled = False
+    Enabled = True
+    ListenForPinEvent = True
     servo = None
     togglePin = None
 
