@@ -76,6 +76,7 @@ class ScreenServo(QObject):
             self.setAngle(90)
             self.currentAngle = 90
             self.openLid()
+            self.currentState = ScreenState.OPEN
 
 
 
