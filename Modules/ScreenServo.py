@@ -129,7 +129,7 @@ class ScreenServo(QObject):
     def openLid(self):
          if(pigpioLibraryFound):
              if(self.angleTestMode):
-                 self.pi.set_servo_pulsewidth(self.servo, self.bottomRange)
+                 self.setAngle(self.servo, self.openAngle)
              elif(self.currentState != ScreenState.MOVING):             
                  self.currentState = ScreenState.MOVING
                  self.currentAngle = self.move(self.openAngle)
@@ -141,7 +141,7 @@ class ScreenServo(QObject):
     def closeLid(self):
         if(pigpioLibraryFound):
              if(self.angleTestMode):
-                 self.pi.set_servo_pulsewidth(self.servo, self.topRange)
+                 self.setAngle(self.servo, self.closeAngle)
              elif(self.currentState != ScreenState.MOVING):             
                  self.currentState = ScreenState.MOVING            
                  self.currentAngle = self.move(self.closeAngle)
