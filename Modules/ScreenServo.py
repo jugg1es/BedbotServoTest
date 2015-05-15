@@ -29,6 +29,8 @@ class ScreenServo(QObject):
     currentAngle = None    
     currentState = None
     moveSpeed = 0.02
+	
+	angleTestMode = True
 
     #ranges from 500-2500 but those may not be safe for the servo    
     #bottomRange = 600  
@@ -120,20 +122,26 @@ class ScreenServo(QObject):
          return self.currentState
   
     def openLid(self):
-         if(pigpioLibraryFound and self.currentState != ScreenState.MOVING):             
-             self.currentState = ScreenState.MOVING
-             self.currentAngle = self.move(self.openAngle)
-             self.currentState = ScreenState.OPEN
-             self.emit(QtCore.SIGNAL('logEvent'), "lid opened  current angle: " + str(self.currentAngle))
+         if(pigpioLibraryFound):
+             if(self.angleTestMode):
+                 self.pi.set_servo_pulsewidth(self.servo, self.bottomRange)
+             elif( self.currentState != ScreenState.MOVING):             
+                 self.currentState = ScreenState.MOVING
+                 self.currentAngle = self.move(self.openAngle)
+                 self.currentState = ScreenState.OPEN
+                 self.emit(QtCore.SIGNAL('logEvent'), "lid opened  current angle: " + str(self.currentAngle))
              
          
          
     def closeLid(self):
-         if(pigpioLibraryFound and self.currentState != ScreenState.MOVING):
-             self.currentState = ScreenState.MOVING            
-             self.currentAngle = self.move(self.closeAngle)
-             self.currentState = ScreenState.CLOSED
-             self.emit(QtCore.SIGNAL('logEvent'), "lid closed  current angle: " + str(self.currentAngle))
+        if(pigpioLibraryFound):
+             if(self.angleTestMode):
+                 self.pi.set_servo_pulsewidth(self.servo, self.topRange)
+             elif( self.currentState != ScreenState.MOVING):             
+                 self.currentState = ScreenState.MOVING            
+                 self.currentAngle = self.move(self.closeAngle)
+                 self.currentState = ScreenState.CLOSED
+                 self.emit(QtCore.SIGNAL('logEvent'), "lid closed  current angle: " + str(self.currentAngle))
                          
   
     def dispose(self):
