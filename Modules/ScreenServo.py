@@ -134,8 +134,9 @@ class ScreenServo(QObject):
              elif(self.currentState != ScreenState.MOVING):             
                  self.currentState = ScreenState.MOVING
                  self.currentAngle = self.move(self.openAngle)
-                 self.currentState = ScreenState.OPEN
                  self.emit(QtCore.SIGNAL('logEvent'), "lid opened  current angle: " + str(self.currentAngle))
+                
+             self.currentState = ScreenState.OPEN
              
          
          
@@ -147,7 +148,8 @@ class ScreenServo(QObject):
                  self.currentState = ScreenState.MOVING            
                  self.currentAngle = self.move(self.closeAngle)
                  self.currentState = ScreenState.CLOSED
-                 self.emit(QtCore.SIGNAL('logEvent'), "lid closed  current angle: " + str(self.currentAngle))
+                 self.emit(QtCore.SIGNAL('logEvent'), "lid closed  current angle: " + str(self.currentAngle))                 
+             self.currentState = ScreenState.CLOSED
                          
   
     def dispose(self):
