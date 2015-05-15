@@ -29,8 +29,9 @@ class ScreenServo(QObject):
     currentAngle = None    
     currentState = None
     moveSpeed = 0.02
-	
-	angleTestMode = True
+
+    
+    angleTestMode = True
 
     #ranges from 500-2500 but those may not be safe for the servo
     #bottomRange = 600
