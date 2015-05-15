@@ -29,12 +29,11 @@ except ImportError:
 #    Sound On
 #    Sound Off
 #    Snooze
-#    Servo Control  (must be pin 18)
+#    Servo Control (must be pin 18)
 #    Open Sensor (servo)
 #    Close Sensor (servo)
 #    OLED pins (6?)
 #    Buzzer
-
 class BedbotWidget(QtGui.QWidget):
     
     loadedModules = None
@@ -76,13 +75,13 @@ class BedbotWidget(QtGui.QWidget):
 
     def logEvent(self, evtStr):
         print(evtStr)
-        #logging.info(str(evtStr))  
-       
+        #logging.info(str(evtStr))
+        '''
         try:
-            #os.system("echo \"" + str(evtStr) + "\" | wall")  
+            os.system("echo \"" + str(evtStr) + "\" | wall")  
         except Exception:
             print("no wall command")
-        
+        '''
 
 
     def initializeMenu(self):
