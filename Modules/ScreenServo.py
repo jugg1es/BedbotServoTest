@@ -48,11 +48,10 @@ class ScreenServo(QObject):
     middle = 1500
     pi = None
     
-    openAngle = 80
-    closeAngle = 160
+    
 
-    #openAngle = 60
-    #closeAngle = 180
+    openAngle = 60
+    closeAngle = 180
     
 
     def __init__(self):
