@@ -46,6 +46,7 @@ class BedbotWidget(QtGui.QWidget):
     hasIOLibraries = False
 
     
+    logFull = true
 
 
     pinConfig = {}
@@ -75,12 +76,14 @@ class BedbotWidget(QtGui.QWidget):
 
     def logEvent(self, evtStr):
         print(evtStr)
-        logging.info(str(evtStr))
+
+        if(self.logFull):
+            logging.info(str(evtStr))
         
-        try:
-            os.system("echo \"" + str(evtStr) + "\" | wall")  
-        except Exception:
-            print("no wall command")
+            try:
+                os.system("echo \"" + str(evtStr) + "\" | wall")  
+            except Exception:
+                print("no wall command")
         
 
 
