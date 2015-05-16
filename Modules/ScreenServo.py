@@ -77,7 +77,6 @@ class ScreenServo(QObject):
             self.currentAngle = 90
             self.openLid()
             self.currentState = ScreenState.OPEN
-            os.system("echo \"testing os.system\" | wall")  
 
 
 
