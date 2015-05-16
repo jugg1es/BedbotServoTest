@@ -41,8 +41,8 @@ class ScreenServo(QObject):
     #bottomRange = 600
     #topRange = 2400
 
-    bottomRange = 800  
-    topRange = 2200
+    bottomRange = 700  
+    topRange = 2400
 
     #middle is always safe at 1500
     middle = 1500
