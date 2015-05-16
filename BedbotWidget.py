@@ -46,7 +46,7 @@ class BedbotWidget(QtGui.QWidget):
     hasIOLibraries = False
 
     
-    logFull = true
+    logFull = True
 
 
     pinConfig = {}
