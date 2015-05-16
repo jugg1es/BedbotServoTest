@@ -4,6 +4,7 @@ import math
 from PyQt4 import QtCore
 from PyQt4.QtCore import QObject
 from threading import Timer,Thread,Event
+import os
 
 class ScreenState(Enum):
     CLOSED = 0
