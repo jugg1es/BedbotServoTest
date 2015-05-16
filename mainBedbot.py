@@ -93,8 +93,7 @@ class MyApplication(QtGui.QApplication):
             if (event.key() == QtCore.Qt.Key_Escape):
                 self.w.close()
             elif(event.key() == QtCore.Qt.Key_Right):
-                #self.w.gotoNextMenuItem()
-                self.w.logEvent("test")
+                self.w.gotoNextMenuItem()
                 
         return super(MyApplication, self).notify(receiver, event)
   
